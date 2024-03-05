@@ -1,0 +1,22 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  namespace: {{.Release.Namespace}}
+  name: self-link
+spec:
+  interval: {{ .Values.selfLink.interval }}
+  url: "{{ .Values.selfLink.gitBase }}/{{ .Values.uuid }}"
+  ref: {{ .Values.selfLink.ref | toYaml | nindent 4 }}
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  namespace: {{.Release.Namespace}}
+  name: self-link
+spec:
+  interval: {{ .Values.selfLink.interval }}
+  path: ./
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: self-link

@@ -1,1 +1,8 @@
-internalDomain: cluster.local
+# This must be provided when rendering the chart
+# uuid: 
+selfLink:
+  # This needs to be the URL prefix of the git server by-uuid URLs
+  #gitBase:
+  interval: 5m
+  secret: flux-secrets
+  ref: { branch: main }
