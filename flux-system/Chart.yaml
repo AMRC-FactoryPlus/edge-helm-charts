@@ -1,0 +1,4 @@
+apiVersion: v2
+name: flux-system
+version: "0.0.1"
+description: "ACS Flux deployment"
