@@ -2,3 +2,7 @@ apiVersion: v2
 name: flux-system
 version: "0.0.1"
 description: "ACS Flux deployment"
+dependencies:
+  - name: flux2
+    version: "2.12.4"
+    repository: https://fluxcd-community.github.io/helm-charts
